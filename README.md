@@ -4,6 +4,15 @@
 
 ## Instructions
 
+1. Install Komodo Periphery (systemd)
+
+On each machine, as root, run 
+```
+curl -sSL https://raw.githubusercontent.com/moghtech/komodo/main/scripts/setup-periphery.py | python3
+systemctl enable periphery
+```
+
+
 1. Install sops
 
 ```
