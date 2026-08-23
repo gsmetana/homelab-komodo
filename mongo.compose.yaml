@@ -24,7 +24,8 @@ services:
       MONGO_INITDB_ROOT_PASSWORD: admin
   
   core:
-    image: ghcr.io/moghtech/komodo-core:latest
+    image: ghcr.io/moghtech/komodo-core:2
+    init: true # This should be added regardless of version
     container_name: komodo_core
     labels:
       komodo.skip: # Prevent Komodo from stopping with StopAllContainers
@@ -38,6 +39,7 @@ services:
       KOMODO_DATABASE_USERNAME: admin
       KOMODO_DATABASE_PASSWORD: admin
     volumes:
+      - /etc/komodo/keys:/config/keys
       ## Store dated backups of the database - https://komo.do/docs/setup/backup
       - /etc/komodo/backups:/backups
       ## Store sync files on server
